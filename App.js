@@ -2,6 +2,7 @@ import {StyleSheet, Text, View, Button} from 'react-native';
 import React from 'react';
 import {ethers, Wallet} from 'ethers';
 import crypto from 'crypto';
+import Web3 from 'web3';
 const rpc = 'https://rpc.testnet.tomochain.com';
 const App = () => {
   const createPrKey = () => {
@@ -13,14 +14,14 @@ const App = () => {
   const pkey = '0x2fb6cF57d2B795b2b5838FcB641deaBeD265Ad13';
 
   const onPressLearnMore = async () => {
-    const provider = new ethers.providers.JsonRpcProvider(rpc);
+    const web3 = new Web3(new Web3.providers.HttpProvider(rpc));
 
-    var wallet = new ethers.Wallet(prkey);
-    provider.getBalance(pkey).then(balance => {
-      // convert a currency unit from wei to ether
-      const balanceInEth = ethers.utils.formatEther(balance);
-      console.log(`balance: ${balanceInEth} ETH`);
-    });
+    // var wallet = new ethers.Wallet(prkey);
+    // provider.getBalance(pkey).then(balance => {
+    //   const balanceInEth = ethers.utils.formatEther(balance);
+    //   console.log(`balance: ${balanceInEth} ETH`);
+    // });
+    console.log(web3);
     console.log('ok');
   };
   return (

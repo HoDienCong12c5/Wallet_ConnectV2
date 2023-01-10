@@ -13,15 +13,17 @@ const WCV2 = {
       metadata: {
         name: 'WalletConnectV2_Example',
         description: 'WalletConnectV2_Example',
-        url: 'https://walletconnect.com/',
+        url: 'https://relay.walletconnect.com',
         icons: ['https://walletconnect.com/walletconnect-logo.png'],
       },
+      storageOptions: {
+        asyncStorage: AsyncStorage,
+      }
     });
     return signClient;
   },
-  connect: async uri => {
-    const signClient = await WCV2.init();
-    uri = WalletV2.url;
+  connect: async ( signClient) => {
+   const uri = WalletV2.url;
     const {version} = parseUri(uri);
     console.log({version});
 

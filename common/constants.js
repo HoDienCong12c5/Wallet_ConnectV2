@@ -1,5 +1,5 @@
 export const WalletV2 = {
-  url: 'wc:8cddf4e74fcaf23fbecbfe6c61b47976a5b981214e1775efb6e040d858f6075a@2?relay-protocol=irn&symKey=e94a56a77a6275faa99cb85a791d2bc6698ffa15476bc27e74294353353a4c37',
+  url: 'wc:f8c83227e36918f123697a565f47a1a87fb6a5a56f0415f0d80076f0e5e1c8bf@2?relay-protocol=irn&symKey=1c4ab832c4a57ea1547e4ceccd50853aeb029ffbd7bffe1404d0dae3d9612174',
   namespaces: {
     eip155: {
       accounts: ['eip155:80001:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb'],

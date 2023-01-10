@@ -19,14 +19,12 @@ const WCV2 = {
     });
     return signClient;
   },
-  connect: async uri => {
-    const signClient = await WCV2.init();
-    uri = WalletV2.url;
+  connect: async signClient => {
+    const uri = WalletV2.url;
     const {version} = parseUri(uri);
     console.log({version});
 
     const s = await signClient.core.pairing.pair({uri: uri});
-    // const s = await signClient.pair({uri});
     console.log({s});
     // const {acknowledged} = await signClient.update({
     //   topic: '3440cfdda5c5164cf04d7e3cb195368ac993620604cf9d2a4ddbfd1c9a1316e1',
@@ -34,18 +32,7 @@ const WCV2 = {
     // });
 
     signClient.on('session_proposal', async event => {
-      console.log('====================================');
-      console.log('start submit');
       console.log({event});
-
-      console.log('====================================');
-      // await signClient.reject({
-      //   id: event.params.id,
-      //   reason: {
-      //     code: 1,
-      //     message: 'rejected',
-      //   },
-      // });
       const [acknowledged] = await signClient.approve({
         id: event.params.id,
         namespaces: WalletV2.namespaces,
